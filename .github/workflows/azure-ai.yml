@@ -90,7 +90,7 @@ env:
   TENANT_ID: ${{ secrets.TENANT_ID }} # Change this !
   WORKSPACE_NAME: ${{ secrets.WORKSPACE_NAME }} # Change this !
   RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }} # Change this !
-  SUBSCRIPTION_ID: 7${{ secrets.SUBSCRIPTION_ID }} # Change this !
+  SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }} # Change this !
 
   ANIMALS: cats,dogs,pandas # As we have three classes, let's just defined them here. This way we can easily loop over them later.
   TRAIN_SET_NAME: animals-training-set
