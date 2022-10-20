@@ -86,11 +86,11 @@ on:
 env:
   CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
 
-  CLIENT_ID: cf21afce-62c6-4ffc-8c44-305bbcd608cc # Change this !
-  TENANT_ID: b1b5b747-fa79-442d-b8ab-870c8343c3c4 # Change this !
-  WORKSPACE_NAME: MLOps-nathan-segers # Change this !
-  RESOURCE_GROUP: TETRA-Workshop-2406 # Change this !
-  SUBSCRIPTION_ID: 763622cd-d9e1-46f1-84c7-635df9708641 # Change this !
+  CLIENT_ID: ${{ secrets.CLIENT_ID }} # Change this !
+  TENANT_ID: ${{ secrets.TENANT_ID }} # Change this !
+  WORKSPACE_NAME: ${{ secrets.WORKSPACE_NAME }} # Change this !
+  RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }} # Change this !
+  SUBSCRIPTION_ID: 7${{ secrets.SUBSCRIPTION_ID }} # Change this !
 
   ANIMALS: cats,dogs,pandas # As we have three classes, let's just defined them here. This way we can easily loop over them later.
   TRAIN_SET_NAME: animals-training-set
@@ -147,7 +147,7 @@ jobs:
         (needs.data-preparing.result == 'success' || needs.data-preparing.result == 'skipped') &&
         inputs.ai_training
       }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     env:
       INITIAL_LEARNING_RATE: 0.01
@@ -196,7 +196,7 @@ jobs:
         (needs.ai-training.result == 'success' || needs.ai-training.result == 'skipped') &&
         inputs.api_creation
       }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     env:
       DEPLOYMENT_DEPENDENCIES: deployment_environment.yml
@@ -237,7 +237,7 @@ jobs:
         (needs.api-creation.result == 'success' || needs.api-creation.result == 'skipped') &&
         inputs.local_deployment
       }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Download docker-config artifact
