@@ -34,7 +34,7 @@ def prepareDeployment(ws, environment):
     entry_script = os.path.join(os.environ.get('SCRIPT_FOLDER'), 'score.py')
 
     inference_config = InferenceConfig(entry_script=entry_script, environment=environment)
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=2, memory_gb=2)
+    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
 
     # Get our model based on the name we registered in the previous notebook
     model = Model(ws, MODEL_NAME)
