@@ -145,8 +145,7 @@ jobs:
     if: ${{
         always() &&
         (needs.data-preparing.result == 'success' || needs.data-preparing.result == 'skipped') &&
-        inputs.ai_training
-      }}
+        inputs.ai_training}}
     runs-on: ubuntu-20.04
 
     env:
@@ -194,8 +193,7 @@ jobs:
         always() &&
         (needs.data-preparing.result == 'success' || needs.data-preparing.result == 'skipped') &&
         (needs.ai-training.result == 'success' || needs.ai-training.result == 'skipped') &&
-        inputs.api_creation
-      }}
+        inputs.api_creation}}
     runs-on: ubuntu-20.04
 
     env:
@@ -235,8 +233,7 @@ jobs:
     if: ${{
         always() &&
         (needs.api-creation.result == 'success' || needs.api-creation.result == 'skipped') &&
-        inputs.local_deployment
-      }}
+        inputs.local_deployment}}
     runs-on: ubuntu-20.04
 
     steps:
