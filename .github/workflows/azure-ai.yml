@@ -42,6 +42,11 @@ on:
         type: boolean
         default: false
         required: true
+      kubernetes:
+        description: 'Check if we should deploy the API on Kubernetes later on.'
+        type: boolean
+        default: false
+        required: true
 
   workflow_dispatch:
     branches: [ main, lessonsteps/** ]
