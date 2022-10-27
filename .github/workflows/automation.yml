@@ -10,11 +10,12 @@ jobs:
     with:
       data_prep: false
       ai_training: false
-      api_creation: true
+      api_creation: false
       process_images: false
       split_images: false
       train_on_local: false
       local_deployment: true
+      kubernetes : true
 
   
     secrets: inherit

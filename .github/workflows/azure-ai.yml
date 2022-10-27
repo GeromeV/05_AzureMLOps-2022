@@ -273,6 +273,22 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
 
+  kubernetes:
+    needs: [docker-build-and-push]
+    if: ${{
+        always() &&
+        (needs.docker-build-and-push.result == 'success' || needs.docker-build-and-push.result == 'skipped') &&
+        inputs.local_deployment}}
+    spec:
+      template:
+      spec:
+        containers:
+          - name: container-name
+            image: ghcr.io/GeromeV/MLOpsAzure
+        imagePullSecrets:
+          - name: github-container-registry
+    
+
 
 
 
